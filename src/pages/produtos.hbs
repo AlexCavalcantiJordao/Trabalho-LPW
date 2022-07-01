@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="https://glitch.com/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Alô SQLite: Log dos Produtos</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="content" role="main">
+      {{>cabecalho}}
+      <h1>Produtos</h1>
+{{#if error}}
+      <p class="error">
+        {{error}}
+      </p>
+{{else}}
+      <!-- O script do servidor irá retornar os votos no array  -->
+      <p>
+        Manter Produtos
+      </p>
+      <!-- Write out a table row for each entry in the log array showing choice and timestamp -->
+      {{#if produtos.length}}
+          <div>
+            <h2>Produtos</h2>
+            <table>
+              <tr>
+                <th></th>
+                <th>Id Produto</th>
+                <th>Produto</th>
+              </tr>
+              {{#each produtos}}
+                <tr>
+                  <td> <input type="radio" name="produtoSelecionado" value="{{id}}" /></td> <!-- votoSelecionado -->
+                  <td>{{id}}</td>
+                  <td>{{nome}}</td>
+                </tr>
+              {{/each}}
+            </table>
+          </div>
+      {{else}}
+      <p class="error">
+        Sem registros!
+      </p>
+      {{/if}}
+    {{/if}}
+    </div>
+  </div>
+  <a href="/iniciarIncluirProduto">INCLUIR NOVO PRODUTO</a><br/>
+  <a href="/iniciarExcluirProduto">EXCLUIR NOVO PRODUTO</a><br/>
+  <a href="">ALTERAR NOVO PRODUTO</a><br/>
+
+  {{>rodape}}
+</body>
+</html>
