@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="https://glitch.com/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Alô SQLite: Login</title>
+  <link rel="stylesheet" href="/style.css" />
+  
+      <style>
+      body {
+        background-image: url("https://cdn.glitch.global/43c2dba8-7af1-4754-a047-52b883a46806/fundo-site-responsivo.png?v=1654394097486");
+
+        background-repeat: no-repeat;
+        background-position: right 0;
+        background-color: white;
+        background-size: cover;
+      }
+    </style>
+  
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="content" role="main">
+      {{>cabecalho}}
+      <h1>Efetuar Login</h1>
+{{#if error}}
+      <p class="error">
+        {{error}}
+      </p>
+{{/if}}
+      <!-- O usuário pode limpar a lista de produtos se ele primeiramente determinar a ADMIN_KEY presente no .env-->
+      <form action="/" method="post">
+        <h3>
+          Efetue seu login
+        </h3>
+        <label for="conta">Conta: </label><input type="text" id="conta" name="conta" required><br/>
+        <br><label for="senha">Senha: </label><input type="password" id="senha" name="senha" required><br/>
+        <br><button type="submit">Submeter</button><br/>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
